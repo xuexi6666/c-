@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>//库声明
+#include <time.h>//声明
+int main()
+{
+    srand(time(0));
+    int  number =rand()%100+1;//srand，rand标准库中的需要先声明stdlib.h   time.h；其中rand（）%100+1取余范围为0-99，加1变为1-100
+    int count =0;
+    int a =0;
+    printf("请输入一个1-100的数");//提示输出
+    do {
+        printf("请猜猜这个数字是多少：");
+        scanf("%d",&a);
+        count ++;
+        if (a>number){
+            printf("你猜大了");
+        }
+        else if(a<number){
+            printf("你猜的小了");
+        }
+    }while (a!= number);//do while循环直到猜出答案，a！
+    printf("太好了，你用了%d次就猜对啦\n",count);
+    return 0;
+}
