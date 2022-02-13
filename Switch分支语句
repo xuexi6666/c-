@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+int type;
+scanf("%d",&type);
+switch (type){
+case 1:
+    printf("你好");
+    break;
+case 2 :
+    printf("在干嘛");
+    break;
+case 3:
+    printf("吃了吗");
+    break;
+case 4:
+printf("睡了吗");
+    break;
+default://超出返回
+    printf("开学了吗");
+    break;
+}
+return 0;
+}
