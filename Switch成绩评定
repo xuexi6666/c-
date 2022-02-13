@@ -1,0 +1,29 @@
+#include <stdio.h>//question：90以上·A，80B，70以上·C，60以上·D其余重修
+
+int main()
+{
+printf("xx的成绩(0-100):");//赋值
+int grade;
+scanf("%d",&grade);
+grade/10;//取整数,跳分支
+switch (grade){
+case 10:
+    
+case 9 :
+    printf("A\n");
+    break;
+case 8:
+    printf("B\n");
+    break;
+case 7:
+    printf("C\n");
+    break;
+case 6:
+    printf("D\n");
+    break;
+default:
+    printf("开学重修");
+    break;
+}
+return 0;
+}
