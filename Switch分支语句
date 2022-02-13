@@ -7,7 +7,7 @@ scanf("%d",&type);
 switch (type){
 case 1:
     printf("你好");
-    break;
+    break;//跳出输出结果
 case 2 :
     printf("在干嘛");
     break;
