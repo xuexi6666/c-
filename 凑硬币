@@ -1,0 +1,65 @@
+#include <stdio.h>//for嵌套循环凑硬币，1角2角5角凑成元
+
+int main()
+{
+int x;
+int one ,two, five;
+scanf("%d",&x);
+for(one=1;one<x*10;one++){//限定范围最多有多个1角
+    for(two=1;two<x*10/2;two++){//限定范围最多有多个2角
+        for(five=1;five<x*10/5;five++){//限定范围最多有多个5角
+            if(one +two*2+five*5==x*10)//开始拼凑所有符合要求答案并输出
+            printf("可以用%d个一角加%d两角加%d五角得到%d元\n",one,two,five,x);
+        }
+    }
+}
+
+return 0;
+}
+//跳出循环
+#include <stdio.h>//for嵌套循环凑硬币，1角2角5角凑成元
+
+int main()
+{
+int x;
+int one ,two, five;
+int exit=0;
+scanf("%d",&x);
+for(one=1;one<x*10;one++){//限定范围最多有多个1角
+    for(two=1;two<x*10/2;two++){//限定范围最多有多个2角
+        for(five=1;five<x*10/5;five++){//限定范围最多有多个5角
+            if(one +two*2+five*5==x*10){//开始拼凑所有符合要求答案并输出
+            printf("可以用%d个一角加%d两角加%d五角得到%d元\n",one,two,five,x);
+            exit =1;
+            break;
+            }
+        }if(exit==1) break;
+
+    }if (exit == 1)break;
+}
+return 0;
+}
+
+//使用goto跳转
+#include <stdio.h>//for嵌套循环凑硬币，1角2角5角凑成元
+
+int main()
+{
+int x;
+int one ,two, five;
+
+scanf("%d",&x);
+for(one=1;one<x*10;one++){//限定范围最多有多个1角
+    for(two=1;two<x*10/2;two++){//限定范围最多有多个2角
+        for(five=1;five<x*10/5;five++){//限定范围最多有多个5角
+            if(one +two*2+five*5==x*10){//开始拼凑所有符合要求答案并输出
+            printf("可以用%d个一角加%d两角加%d五角得到%d元\n",one,two,five,x);
+            goto out;
+           
+            }
+        }
+
+    }
+out:
+return 0;
+}
