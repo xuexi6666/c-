@@ -1,0 +1,32 @@
+#include<stdio.h>//一行中给正整数m，n（1<=m<=n<=500）,求区间内素数个数和他们的和
+int main()
+{
+	int m,n;
+	int i;
+	int cnt=0;
+	int sum=0;
+	
+	scanf("%d %d",&m,&n);
+	//排除1的影响，1不是素数 
+	if(m==1)
+		m=2; 
+	//for循环判断这个数是不是素数	
+	for(i=m;i<=n;i++){
+		int isprime=1;
+		int k;
+		for(k=2;k<=i-1;k++){
+			if(i%k==0){
+				isprime=0;
+				break;
+			}
+		}
+		//判断是否是素数(1不是素数)
+		if(isprime) {
+			cnt++;
+			sum+=i;
+		}
+	}
+	printf("%d %d",cnt,sum);
+	
+	return 0;
+}
