@@ -1,0 +1,42 @@
+#include<stdio.h>
+int max(int a,int b)
+{
+	int ret;
+	if (a>b){
+		ret =a;
+	}else {
+		ret =b;
+	}
+	return ret;
+}
+int main(){
+	int a,b;
+	printf("请输入两位正整数:",a,b);
+	scanf("%d %d",&a,&b);
+	
+	printf("%d\n",max(a,b));
+	return 0;
+}
+//return不符合单一出口理念
+#include<stdio.h>
+int max(int a,int b)
+{
+	int ret;
+	if (a>b){
+		//ret =a;
+		return a;
+	}else {
+		//ret =b;
+		return b;
+	}
+	//return ret;
+}
+int main(){
+	int a,b;
+	printf("请输入两位正整数:",a,b);
+	scanf("%d %d",&a,&b);
+	
+	printf("%d\n",max(a,b));
+	return 0;
+}
+//
