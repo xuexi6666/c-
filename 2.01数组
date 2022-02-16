@@ -1,0 +1,60 @@
+#include<stdio.h>//j普通平均数方法
+int main()
+{
+    int x;
+    int cnt = 0;
+    double sum =0;
+    scanf("%d",&x);
+    while (x!=-1)
+    {
+        sum+=x;
+        cnt++;
+        scanf("%d",&x);
+       
+    } //printf("%f %d\n",sum,cnt);
+   
+    if(cnt > 0)
+    {
+    printf("%f\n",sum/cnt);
+    }
+    
+	return 0;
+}
+//数组方法
+#include<stdio.h>
+int main()
+{
+    int x;
+    int cnt = 0;
+    double sum =0;
+    int number[100];//引入数组，说明范围
+    scanf("%d",&x);
+    while (x!=-1)
+    {
+        number [cnt]=x;//对数组赋值
+        //jieshi
+        {
+            int i;
+            printf("%d\t",cnt);
+            for (i=0;i<=cnt;i++){
+                printf("%d\t",number[i]);
+            }
+        }printf("\n");
+        //
+        sum+=x;
+        cnt++;
+        scanf("%d",&x);  
+    } //printf("%f %d\n",sum,cnt);
+    if(cnt > 0)
+    {
+    printf("%f\n",sum/cnt);
+    int i;
+    for (i=0;i<cnt;i++){
+        if (number[i]>sum/cnt){//如果数组值大于平均值输出记录
+            printf("%d\n",number[i]);
+        }
+    }
+    }
+    
+	return 0;
+}
