@@ -1,0 +1,37 @@
+/*设计火影忍者抽奖
+1次抽中是自选s
+3次以内自选A
+3-10自选c
+10以上滚出木业
+*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main()
+{
+    srand(time(0));
+    int number = rand()%10+1;
+    int count = 0;
+    int a = 0;
+    printf("请输入1-10的整数\n");
+    do{
+        printf("请猜猜这个数字是多少？");
+        scanf("%d",&a);
+        count ++;
+        if(a>number ){
+                printf("对不起打错了,请再猜一次\n");
+        }else if(a<number ){
+                printf("对不起打错了,请再猜一次\n");
+        }
+    }while (a!= number);
+    if(count==1){
+        printf("天选之人只有%d抽",count);
+    }else if(a>1&&a<=3){
+        printf("欧气满满用了%d抽",count);
+    }else if(a>3 && a<=8){
+        printf("运气不错用了%d抽",count);
+    }else{
+        printf("用了%d抽还没中滚木业",count);
+    }
+    return 0;
+}
