@@ -1,0 +1,18 @@
+#include<stdio.h>
+void sum (int begin,int end)//vodi 定义函数类型，返回值或者指针类型说明
+{
+	int i;
+	int sum =0;
+	for (i=begin;i<=end;i++)
+	{
+		sum +=i;
+	}
+printf("%d到%d的和是%d\n",begin,end,sum);
+}
+int main()//use
+{
+	sum(0,10);
+	sum(10,35);
+	sum(15,40);
+	return 0;
+}
