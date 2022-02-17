@@ -1,0 +1,72 @@
+#include <stdio.h>//应用场景一，
+void swap(int *pa,int *pb);//声明
+int main(void)
+{
+    int a=5,b=6;
+    swap(&a,&b);//跳转幻术
+    printf("a =%d,b=%d",a,b);//输出
+    return 0;  
+}
+
+void swap (int *pa,int *pb)//设置swap函数
+{
+    int t =*pa;
+    *pa = *pb;
+    *pb =t;//
+}
+//
+#include <stdio.h>//应用场景二，指针求数字最大最小值
+void minmax(int a[],int len,int *min,int *max);//声明
+int main(void)
+{
+    int a[]= {1,2,3,4,5,6,8,2,65,56,4,65,324,49};
+    int min ,max;
+    minmax(a,sizeof(a)/sizeof(a[0]),&min,&max);//sizeof(a)/sizeof(a[0])就是数组长度。
+    printf("min=%d,max=%d\n",min,max);
+    return 0;
+
+}
+void minmax(int a[],int len,int *min,int *max)
+{
+    int i;
+    *min = *max =a[0];/*初始化赋值a[0]=1,注意与void输入数据一直先int *min什么就先
+就先*min 不然数据会相反    */
+    for(i=1;i<len;i++)
+    {
+        if(a[i]<*min)
+        {
+            *min = a[i];
+        }
+        if(a[i]>*max)
+        {
+            *max = a[i];
+        }//与数组的值比较大的就是max小的min
+    }
+}
+//
+#include<stdio.h>
+/*
+@return 如果除法成功，返回1，否则返回0
+*/
+int divide(int a,int b,int *result)//int需要返回值
+{
+    int ret =1;
+    if (b==0)//b不能等于0，等于零结束除法无意义
+    {
+        ret = 0;
+    }else{
+        *result = a/b;
+    }
+    return ret;
+}
+int main(void)
+{
+    int a=5;
+    int b=2;
+    int c;
+    if(divide(a,b,&c))//注意是&c
+    {
+        printf("%d/%d=%d\n",a,b,c);
+    }
+    return 0;
+}
