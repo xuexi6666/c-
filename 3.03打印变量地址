@@ -1,0 +1,32 @@
+ #include <stdio.h>
+ int main(void)
+{
+    char ac[]={0,1,2,3,4,5,6,7,8,};
+    char *p = ac;
+    printf("p =%p\n",p);//打印变量地址
+    printf("p+1=%p\n",p+1);//相差1
+    int ai[]={0,1,2,3,4,5,6,7,8,};
+    int *q = ai;
+    printf("q =%p\n",q);
+    printf("q+1=%p\n",q+1);//相差4
+    return 0;
+}
+//
+ #include <stdio.h>
+ int main(void)
+{
+    char ac[]={0,1,2,3,4,5,6,7,8,};
+    char *p = ac;
+    char *p1 = &ac[5];
+    printf("p =%p\n",p);//打印变量地址
+    printf("p+1=%p\n",p+1);//相差1
+    printf("p1-p=%p\n",p1-p);//ac[5]-ac[0]
+    int ai[]={0,1,2,3,4,5,6,7,8,};
+    int *q = ai;
+    int *q1 = &ai[6];
+    printf("q =%p\n",q);
+    printf("q+1=%p\n",q+1);//相差4
+    printf("q1=%p\n",q1);//l6进制 E8-D0=18化为10进制为24
+    printf("q1-q=%d\n",q1-q);//一共6个sizeof(类型)
+    return 0;
+}
