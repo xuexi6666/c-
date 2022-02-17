@@ -1,0 +1,88 @@
+#include<stdio.h>//数组法
+int isPrime(int x,int knownPrime[],int number0fknownPrime);
+
+int main(void)
+{
+    const int number =10;
+    int prime[number]={2};//无法初始化导致出错
+    int count =1;
+    int i=3;
+    {
+        int i;
+        printf("\t\t\t\t");
+        for(i=0;i<number;i++);
+        {
+            printf("%d\t",i);
+        }printf("\n");
+    }
+    while (count<number)
+    {
+        if (isPrime(i,prime,count))
+        {
+            prime[count++]=i;
+            {
+                printf("i=%d \tcnt%d\t",i,count);
+                int i;
+                for (i=0;i<number;i++){
+                    printf("%d\t",prime[i]);
+                }printf("\n");
+            }
+        }
+        i++;
+    }
+    for (i =0;i<number;i++)
+    {
+       printf("%d",prime[i]);
+       if ((i+1)%5) printf("\t");
+       else printf("\n");
+    }
+
+    return 0;
+}
+int isPrime(int x,int knownPrime[],int number0fknownPrime)
+{
+    int ret = 1;
+    int i;
+    for (i=0;i<number0fknownPrime;i++)
+    {
+        if(x % knownPrime[i]==0)
+        {
+            ret =0;
+            break;
+        }
+    }
+    return ret;
+}
+//剔除法2n，3n...删除减少工作量
+#include <stdio.h>
+int main()
+{
+    const int maxnumber ;//限定类型，输入最大范围
+    printf("shuru:");
+    scanf("%d",&maxnumber);
+    int isprime[maxnumber];//数组
+    int i;
+    int x;
+    for (i=0;i<maxnumber;i++)
+    {
+        isprime[i]=1;//将数组isprime[i]全都初始化为1
+    }
+    for (x =2;x<maxnumber;x++)//从2开始循环
+    {
+        if(isprime[x])//如果数组不为零继续下面循环，否则已经判断该数字
+        {
+            for(i=2;i*x<maxnumber;i++)//判断x的倍数是否为素数，倍数从2开始，是某个x的倍数就不是素数
+            {
+                isprime[i*x] = 0;//然后将改数置零
+            }
+        }
+    }
+    for (i=2;i<maxnumber;i++)
+    {
+        if(isprime[i])//该位置数字存在即不是0
+        {
+            printf("%d\t",i);//输出
+        }
+    }
+    printf("\n");
+    return 0;
