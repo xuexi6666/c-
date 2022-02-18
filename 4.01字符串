@@ -1,0 +1,138 @@
+#include <stdio.h>//putchar字符对象输出，一次只能输出一个
+int main(int argc,char const *argv[])
+{
+    int ch;
+    while((ch= getchar())!= EOF){
+        putchar(ch);
+        }
+printf("EFO\n");//crtl+c结束
+return 0;
+}
+
+//
+#include <stdio.h>
+#include <string.h>
+int mylen(const char* s)
+{
+    int cnt = 0;
+    int idx =0;
+    while(s[idx]!='\0'){//循环直到数组最后一位是\0
+        idx++;
+        cnt++;
+    }
+}
+int main(int argc,char const *argv[])
+{
+    char line[]= "hello";
+    //printf("strlen=%lu\n",strlen(line));//、%lu无符号的长整数型,strlen字符长度
+    printf("strlen=%lu\n",mylen(line));
+    printf("sizeof=%lu\n",sizeof(line));
+    return 0;
+}
+//
+#include <stdio.h>//strcmp判断是否相等不同返回差 值
+#include <string.h>
+int mycmp(const char* s1,const char* s2)
+{
+    int idx =0;
+    while(s1[idx]==s2[idx] && s1[idx]!='\0'){
+    /*while (1)
+    {
+        if(s1[idx] != s2[idx])//判断字符是否相等，不相等跳出
+        {
+            break;
+        }else if (s1[idx]=='\0')//是否结束
+        {
+            break;
+        }
+    }*/
+    idx  ++;
+    }
+    return s1[idx]-s2[idx];
+    
+}
+int main(int argc,char const *argv[])
+{
+    char s1[]="abc";
+    char s2[]="abc";
+    printf("%d\n",mycmp(s1,s2));//比较是否相等,相等为0
+    
+    return 0;
+}
+//指针
+#include <stdio.h>//strcmp判断是否相等不同返回差 值
+#include <string.h>
+int mycmp(const char* s1,const char* s2)
+{
+    int idx =0;
+    while(*s1 == *s2 && *s1!= '\0')
+    {
+        s1++;
+        s2++;
+    }
+    return *s1-*s2 ;
+    
+}
+int main(int argc,char const *argv[])
+{
+    char s1[]="abc";
+    char s2[]="abc";
+    printf("%d\n",mycmp(s1,s2));//比较是否相等,相等为0
+    
+    return 0;
+}
+#include <stdio.h>//把src复制到dst
+#include <string.h>
+int mycpy(char* dst,char* src)
+{
+    /*int idx =0;//数组版本
+    while(src[idx]!='\0')
+    {
+        dst[idx]=src[idx];//copy
+        idx++;
+    }
+    dst[idx]='\0';//end
+    return dst;*/
+
+    /*指针法
+    char* ret =dst;
+    while(*src!='\0')
+    {
+        *dst =*src;
+        dst++;
+        src++;
+    }
+    *dst='\0';
+    return ret;*/
+    //指针法优化
+    char* ret =dst ;
+    while(*dst++=*src++);//空循环
+    *dst = '\0';
+    return ret;
+}
+int main(int argc,char const *argv[])
+{
+    char s1[]="abc";
+    char s2[]="abc";
+    strcpy(s1,s2);
+    return 0;
+}
+
+
+#include <stdio.h>//strchr找字符
+#include <string.h>
+#include <stdlib.h>
+
+int main(int argc,char const *argv[])
+{
+    char s[]="hello000000";
+    char *p = strchr(s,'l');//从l开始选后面
+    char c=*p;
+    *p ='\0';//将l变为‘\0’
+    char *t = (char*)malloc(strlen(s)+1);
+    strcpy(t,s);//做完记得把l还回去
+    //p =strchr(p+1,'l'); //
+    printf("%s\n",p);
+    free (t);
+    return 0;
+}
